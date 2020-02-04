@@ -1,5 +1,5 @@
 <?php
-require('controller.php');
+require('controller/controller.php');
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
@@ -13,6 +13,10 @@ if (isset($_GET['action'])) {
             echo 'Erreur : aucun identifiant de billet envoyé';
         }
     }
+    elseif ($_GET['action'] == 'admin') {
+        admin();
+    }
+
 }
 else {
     listPosts();

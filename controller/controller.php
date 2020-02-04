@@ -23,6 +23,11 @@ function post()
     require('view/postView.php');
 }
 
+function admin()
+{
+    require('admin/admin.php');
+}
+
 function addComment($postId, $author, $comment)
 {
     $commentManager = new CommentManager();
