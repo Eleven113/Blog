@@ -1,8 +1,8 @@
 <?php $title = 'Billet Simple pour l\'Alaska - Jean Forteroche'; ?>
 
 <?php ob_start(); ?>
-<h1>Mon super blog !</h1>
-<p>Derniers billets du blog :</p>
+<h1>Billet Simple pour l'Alaska par Jean Forteroche</h1>
+<p>Derniers articles publiés :</p>
 
 
 <?php
