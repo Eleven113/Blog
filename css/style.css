@@ -1,3 +1,34 @@
+@font-face {
+    font-family: 'go_2_old_westernregular';
+    src: url('../fonts/go_2_old_western-webfont.woff2') format('woff2'),
+         url('../fonts/go_2_old_western-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 #tinymce {
     width : 80%;
+}
+
+#container {
+    width: 80%;
+}
+
+#banner {
+    border : 1px solid black;
+    display : flex;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size : 5vw;
+    font-family: 'go_2_old_westernregular' ;
+}
+
+#lake {
+    max-width: 100%;
+    position: absolute;
+    left : 0;
+    top : 0;
+    z-index: -1;
 }
