@@ -1,7 +1,7 @@
 <?php $title = 'Billet Simple pour l\'Alaska - Jean Forteroche'; ?>
 
 <?php ob_start(); ?>
-<h1>Mon super blog !</h1>
+<h1>Billet Simple pour l'Alaska par Jean Forteroche</h1>
 <p>Derniers billets du blog :</p>
 
 
@@ -18,7 +18,7 @@ while ($data = $posts->fetch())
         <p>
             <?= nl2br(htmlspecialchars($data['post'])) ?>
             <br />
-            <em><a href="index.php?id=<?= $data['id'] ?>">Commentaires</a></em>
+            <em><a href="index.php?action=post&id=<?= $data['id'] ?>">Commentaires</a></em>
         </p>
     </div>
 <?php
