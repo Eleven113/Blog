@@ -16,6 +16,7 @@ body {
     margin-bottom: 25px;
     padding: 10px;
     box-shadow: 5px 9px 11px #737373;
+    background-color: white;
 }
 
 #post_content {
@@ -60,4 +61,12 @@ body {
     left : 0;
     top : 0;
     z-index: -1;
+}
+
+#comments {
+    margin-top: 35px;
+}
+
+#comments_post {
+    margin-bottom: 25px;
 }
