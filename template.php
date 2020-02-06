@@ -14,9 +14,11 @@
             <span id="banner_span">Un billet pour l'Alaska</span>
         </div>
     </header>
-    <div id="container">
-        <?= $content ?>
+    <div id="main">
+        <div id="container">
+            <?= $content ?>
+        </div>
     </div>
 </body>
-
+<script src="js/script.js"></script>
 </html>

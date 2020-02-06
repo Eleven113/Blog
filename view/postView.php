@@ -1,7 +1,6 @@
 <?php $title = 'Billet Simple pour l\'Alaska - Jean Forteroche'; ?>
 
 <?php ob_start(); ?>
-    <h1>Billet Simple pour l'Alaska par Jean Forteroche</h1>
     <p><a href="index.php">Retour à la liste des billets</a></p>
 
     <div class="news">
