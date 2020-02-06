@@ -1,24 +1,27 @@
 <?php $title = 'Billet Simple pour l\'Alaska - Jean Forteroche'; ?>
 
 <?php ob_start(); ?>
-<h1>Derniers billets du blog :</h1>
+<h1>Derniers articles publiés :</h1>
 
 
 <?php
 while ($data = $posts->fetch())
 {
 ?>
-    <div class="news">
-        <h3>
-            <?= htmlspecialchars($data['title']) ?>
-            <em>le <?= $data['creation_date_fr'] ?></em>
-        </h3>
-        
-        <p>
+    <div class="post">
+        <div id="post_title">
+            <h3>
+                <?= htmlspecialchars($data['title']) ?>
+            </h3>
+        </div>
+        <div id="post_content">
             <?= nl2br(htmlspecialchars($data['post'])) ?>
             <br />
             <em><a href="index.php?action=post&id=<?= $data['id'] ?>">Commentaires</a></em>
-        </p>
+        </div>
+        <div id="post_date">
+            <em>Article publié le <?= $data['creation_date_fr'] ?></em>
+        </div>    
     </div>
 <?php
 }

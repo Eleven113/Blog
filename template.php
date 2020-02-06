@@ -11,7 +11,7 @@
     <header>
         <div id="banner">
             <img src="img/emerald-lake-436200.jpg" id="lake">
-            <span id="banner_span">Un billet pour l'Alaska</span>
+            <span id="banner_span">Billet simple pour l'Alaska</span>
         </div>
     </header>
     <div id="main">
