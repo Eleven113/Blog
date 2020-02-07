@@ -30,7 +30,7 @@
                         <div>
                             <strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_comment_fr'] ?>
                         </div>
-                        <i class="fas fa-exclamation-triangle"></i>
+                        <a href="index.php?action=alertcomment&id=<?= $comment['id'] ?>"><i class="fas fa-exclamation-triangle"></i></a>
                     </div>
                     <div id="comment_content">
                         <?= nl2br(htmlspecialchars($comment['comment'])) ?>
@@ -54,7 +54,7 @@
                 <label for="pseudo">Nom</label> : <input type="text" name="name" id="name" class="form-control" />
                 <label for="message">Message</label> :  <br/><textarea name="text" id="text" row="30" class="form-control">Tapez votre commentaire ici</textarea>
                 <br/>
-                <button type="submit" value="submit" class="btn btn-primary"><i class='fas fa-comment'></i> Envoyer</button>
+                <button type="submit" value="submit" class="btn btn-dark"><i class='fas fa-comment'></i> Envoyer</button>
             </form>
         </div>
     </div>    
