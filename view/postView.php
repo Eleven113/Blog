@@ -1,7 +1,9 @@
 <?php $title = 'Billet Simple pour l\'Alaska - Jean Forteroche'; ?>
 
 <?php ob_start(); ?>
-    <p><a href="index.php">Retour à la liste des articles</a></p>
+    <div id="backto">
+        <a href="index.php"><i class="fa fa-share fa-flip-horizontal"></i> Retour à la liste des articles</a>
+    </div>
 
     <div class="post">
         <h1>
@@ -24,8 +26,15 @@
                     $post_count++;
             ?>
                 <div id="comment">
-                    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_comment_fr'] ?></p>
-                    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+                    <div id="comment_title">
+                        <div>
+                            <strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_comment_fr'] ?>
+                        </div>
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div id="comment_content">
+                        <?= nl2br(htmlspecialchars($comment['comment'])) ?>
+                    </div>
                 </div>    
             <?php
                 }
@@ -40,15 +49,15 @@
             ?>
         </div>    
         <div id="comments_form">
-            <form action="minichat_post.php" method="post">
+            <form action="index.php?action=addcomment&id=<?= $_GET['id'] ?>""  method="post">
                 <legend>Votre commentaire</legend>
                 <label for="pseudo">Nom</label> : <input type="text" name="name" id="name" class="form-control" />
-                <label for="message">Message</label> :  <br/><textarea name="text" id="text" row="10" cols="60" class="form-control">Tapez votre commentaire ici</textarea>
+                <label for="message">Message</label> :  <br/><textarea name="text" id="text" row="30" class="form-control">Tapez votre commentaire ici</textarea>
                 <br/>
-                <input type="submit" value="Envoyer" />
-            
+                <button type="submit" value="submit" class="btn btn-primary"><i class='fas fa-comment'></i> Envoyer</button>
             </form>
         </div>
+    </div>    
         <?php $content = ob_get_clean(); ?>
 
         

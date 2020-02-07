@@ -14,12 +14,22 @@ while ($data = $posts->fetch())
                 <?= htmlspecialchars($data['title']) ?>
             </h3>
         </div>
+        <a href="index.php?action=post&id=<?= $data['id'] ?>">
         <div id="post_content">
-            <?= nl2br(htmlspecialchars($data['post'])) ?>
+            <?php              
+                if ( strlen($data['post']) > 500 ){
+                    $post_txt = htmlspecialchars(substr($data['post'],0,500) . ' (...)');
+                }
+                else {
+                    $post_txt = htmlspecialchars($data['post']);
+                }
+                echo $post_txt;
+            ?>
             <br />
-            <em><a href="index.php?action=post&id=<?= $data['id'] ?>">Commentaires</a></em>
         </div>
+        </a>
         <div id="post_date">
+            <em><a href="index.php?action=post&id=<?= $data['id'] ?>">Commentaires</a></em>
             <em>Article publié le <?= $data['creation_date_fr'] ?></em>
         </div>    
     </div>
