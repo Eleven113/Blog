@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'go_2_old_westernregular';
     src: url('../fonts/go_2_old_western-webfont.woff2') format('woff2'),
-         url('../fonts/go_2_old_western-webfont.woff') format('woff');
+        url('../fonts/go_2_old_western-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -11,13 +11,13 @@ body {
     background-color: #EBEBEB;
 }
 
-#container > h1 {
+#container>h1 {
     margin-top: 15px;
     margin-bottom: 25px;
 }
 
-.post {
-    border : 3px solid black;
+.post,.comment {
+    border: 3px solid black;
     margin-bottom: 30px;
     padding: 10px;
     box-shadow: 5px 9px 11px #737373;
@@ -25,60 +25,65 @@ body {
 }
 
 #post_content {
-    border-top : 1px solid black;
-    border-bottom : 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 #post_date {
     padding-top: 5px;
-    display : flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-a, a:link, a:visited, a:focus, a:hover,a:active  {
+a,
+a:link,
+a:visited,
+a:focus,
+a:hover,
+a:active {
     text-decoration: none;
-    color : black
+    color: black
 }
 
 
 #tinymce {
-    width : 80%;
+    width: 80%;
 }
 
 #main {
     width: 100%;
-    display : flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-#container{
-    width:80%;
+#container {
+    width: 80%;
 }
 
 #banner {
-    display : flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-size : 10vw;
-    font-family: 'go_2_old_westernregular' ;
-    color : white;
+    font-size: 10vw;
+    font-family: 'go_2_old_westernregular';
+    color: white;
 }
 
 #lake {
     max-width: 100%;
     position: absolute;
-    left : 0;
-    top : 0;
+    left: 0;
+    top: 0;
     z-index: -1;
 }
 
 #comments {
     margin-top: 35px;
-    margin-bottom : 20px;
+    margin-bottom: 20px;
 }
 
 #comments_post {
@@ -86,30 +91,30 @@ a, a:link, a:visited, a:focus, a:hover,a:active  {
 
 }
 
-#comments_post > h2 {
+#comments_post>h2 {
     margin-bottom: 15px;
 }
 
 textarea {
-    height : 100%;
+    height: 100%;
 }
 
 #backto {
-    margin-top : 15px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
-#comment{
-    border : 1px solid black;
+#comment {
+    border: 1px solid black;
     margin-bottom: 20px;
-    padding : 10px;
+    padding: 10px;
 }
 
 #comment_content {
     margin-top: 10px;
 }
 
-#comment_title{
+#comment_title {
     padding-bottom: 10px;
     border-bottom: 1px solid black;
     display: flex;
@@ -120,4 +125,64 @@ textarea {
 button {
     background-color: black;
     border-color: black;
+}
+
+#banner_admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 5vw;
+    color: black;
+}
+
+#menu_admin {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 3vw;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+#post_admin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+#button_admin {
+    width: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#post_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#ud_post {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#comment_data{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#comment_content{
+    font-size:1.5vw;
+}
+
+#comment_actions{
+    text-align: right;
 }

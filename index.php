@@ -12,9 +12,7 @@ if (isset($_GET['action'])) {
             echo 'Erreur : aucun identifiant de billet envoyé';
         }
     }
-    elseif ($_GET['action'] == 'admin') {
-        admin();
-    }
+
     elseif ($_GET['action'] == 'addcomment') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             addComment($_GET['id'],$_POST['name'],$_POST['text']);
@@ -30,6 +28,12 @@ if (isset($_GET['action'])) {
         else {
             echo 'Erreur : aucun identifiant de commentaire envoyé';
         }  
+    }
+    elseif ($_GET['action'] == 'admin') {
+        adminListPost();
+    }
+    elseif ($_GET['action'] == 'listcomments') {
+        listComments();
     }
 }
 else {

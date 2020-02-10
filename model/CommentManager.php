@@ -35,4 +35,12 @@ class CommentManager extends Manager
         
         return $comment['id_post'];
     }
+
+    public function listComments()
+    {
+        $db = $this->dbConnect();
+        $comments = $db->query('SELECT id, author, comment, DATE_FORMAT(date_creation, \'%d/%m/%Y\') AS creation_date_fr, alert FROM comments ORDER BY alert DESC,date_creation DESC');
+
+        return $comments;
+    }
 }

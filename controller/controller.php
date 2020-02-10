@@ -23,11 +23,6 @@ function post()
     require('view/postView.php');
 }
 
-function admin()
-{
-    require('admin/admin.php');
-}
-
 function addComment($postId, $author, $comment)
 {
     $commentManager = new CommentManager();
@@ -50,3 +45,18 @@ function alertComment($commentId)
 
 }
 
+function adminListPost()
+{
+    $postManager = new PostManager();
+    $posts = $postManager->getPosts(); 
+
+    require('view/adminlistpostsView.php');
+}
+
+function listComments()
+{
+    $commentManager = new CommentManager();
+    $comments = $commentManager->listComments();
+
+    require('view/adminlistcomments.php');
+}
