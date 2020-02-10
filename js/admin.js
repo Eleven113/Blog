@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <script src="https://cdn.tiny.cloud/1/kkhvihv2kq63k749dzof0jfnzs1w0ws3wkdzmo2al6neam7j/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-</head>
-<body>
-  <textarea>
-    <h3>Le titre de votre article</h3>
-    <span>Tapez votre texte ici</span>
-  </textarea>
-  <script>
-    tinymce.init({
+let dlPost = new ConfirmManagement ("confirm_dl_post", "confirm_dl_post_no", "post-delete");
+
+// Réglage TinyMCE
+tinymce.init({
     selector: 'textarea',
       plugins: 'a11ychecker advcode casechange formatpainter linkchecker lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
       toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
@@ -17,6 +9,3 @@
       tinycomments_mode: 'embedded',
       tinycomments_author: 'Author name',
     });
-  </script>
-</body>
-</html>

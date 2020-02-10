@@ -60,3 +60,17 @@ function listComments()
 
     require('view/adminlistcomments.php');
 }
+
+function createPost()
+{
+    require('view/admincreatepost.php');
+}
+
+function addPost($post)
+{
+    $postManager = new PostManager();
+    $post = $postManager->addPost($post);
+
+    header('Location: index.php?action=admin');
+
+}

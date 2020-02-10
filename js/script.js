@@ -10,7 +10,5 @@ divTextarera.addEventListener("click",function(){
     divTextarera.innerHTML = "";
 });
 
-// Change la couleur du bouton des commentaires
-let divButton = document.button;
-divButton.style.backgroundColor = "black";
-divButton.style.border = "black";
+
+

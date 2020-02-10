@@ -35,6 +35,12 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'listcomments') {
         listComments();
     }
+    elseif ($_GET['action'] == 'createpost') {
+        createPost();
+    }
+    elseif ($_GET['action'] == 'addpost') {
+        addPost($_POST['post']);
+    }
 }
 else {
     listPosts();
