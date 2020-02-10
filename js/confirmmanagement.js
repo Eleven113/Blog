@@ -5,6 +5,8 @@ class ConfirmManagement {
         this.buttonNo = document.getElementById(buttonNoId);
         console.log(this.buttonsDelete);
         this.events();
+        this.href = document.getElementById("actionLink").href;
+        this.link = document.getElementById("actionLink");
     }
 
     events(){
@@ -15,6 +17,7 @@ class ConfirmManagement {
         for (let i=0; i < this.buttonsDelete.length; i++ ){
             this.buttonsDelete[i].addEventListener("click",function(){
                     this.div.style.display = "flex";
+                    this.link.href = this.href + (this.buttonsDelete.length-i);
             }.bind(this));
         }
     }

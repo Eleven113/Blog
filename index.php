@@ -32,15 +32,27 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'admin') {
         adminListPost();
     }
+
     elseif ($_GET['action'] == 'listcomments') {
         listComments();
     }
+
     elseif ($_GET['action'] == 'createpost') {
         createPost();
     }
+
     elseif ($_GET['action'] == 'addpost') {
         addPost($_POST['post']);
     }
+
+    elseif ($_GET['action'] == 'deletepost') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            deletePost($_GET['id']);
+        }
+        else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }  
+    }   
 }
 else {
     listPosts();

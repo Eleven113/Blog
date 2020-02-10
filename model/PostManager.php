@@ -14,7 +14,7 @@ class PostManager extends Manager
             die('Erreur : '.$e->getMessage());
         }
 
-        $posts = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 10');
+        $posts = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 50');
 
         return $posts;
     }
@@ -89,7 +89,7 @@ class PostManager extends Manager
         $req->execute(array('post' => $post));
     }
 
-    public function deletePost() // A faire
+    public function deletePost($postId)
     { 
         try
         {
@@ -100,7 +100,16 @@ class PostManager extends Manager
             die('Erreur : '.$e->getMessage());
         }
 
-        // $req = $bdd->prepare('DELETE INTO posts(id, posts) VALUES('', :post)');
-        $req->execute(array('post' => $post));
+        $req = $db->prepare('DELETE FROM posts WHERE id = ?');
+        $req->execute(array($postId));
+
+        // if (!$vardemerde) {
+        //     echo "\nPDO::errorInfo():\n";
+        //     print_r($db->errorInfo());
+        // }
+        // else{
+        //     echo 'c good';
+        // }
+
     }
 }

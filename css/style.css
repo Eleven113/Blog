@@ -235,3 +235,7 @@ button {
     justify-content: space-around;
     width: 10%;
 }
+
+.post-delete{
+    cursor: pointer;
+}

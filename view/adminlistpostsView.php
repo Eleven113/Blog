@@ -6,7 +6,7 @@
         <div class="confirm-text">Vous êtes sur le point de supprimer un article ! Confirmez ?</div>
         <div class="confirm-buttons">
             <button id="confirm_dl_post_no" class="btn btn-dark">Non</button>
-            <a href="index.php?action=deletepost&id=<?= $data['id'] ?>"><button id="confirm_dl_post_yes" class="btn btn-dark">Oui</button></a>
+            <a href="index.php?action=deletepost&id=<?= $data['id'] ?>" id="actionLink"><button id="confirm_dl_post_yes" class="btn btn-dark">Oui</button></a>
         </div>
     </div>    
 </div>

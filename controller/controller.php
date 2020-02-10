@@ -74,3 +74,19 @@ function addPost($post)
     header('Location: index.php?action=admin');
 
 }
+
+function deletePost($postId)
+{
+    $postManager = new PostManager();
+    $postManager->deletePost($post);
+
+    // header('Location: index.php?action=admin');
+}
+
+function deleteComment($postId)
+{
+    $commentManager = new CommentManager();
+    $commentManager->listComments();
+
+    // header('Location: index.php?action=admin');
+}
