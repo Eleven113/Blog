@@ -11,7 +11,7 @@
     </div>    
 </div>
 
-<div id="cr_post"><i class="fas fa-clipboard-list"></i>&nbsp;Liste des commentaires : </h3></div>
+<div id="cr_post"><h3><i class="fas fa-clipboard-list"></i>&nbsp;Liste des commentaires : </h3></div>
 <div id="comments">
 <?php
 while ($data = $comments->fetch())
@@ -23,11 +23,13 @@ while ($data = $comments->fetch())
             <div id="comment_data-alert">Signalé <?= htmlspecialchars($data['alert']) ?> fois</div>
         </div>
         <div id="comment_content">
-        <?= htmlspecialchars($data['comment']) ?>
-        </div>
-        <div id="comment_actions">
-                <div class="comment-update"><a href="index.php?action=updatecomment&id=<?= $data['id'] ?>"><i class="fas fa-pen"></i></a></div>
-                <div class="comment-delete" id="<?= $data['id'] ?>"><i class="fas fa-trash-alt"></i></div>
+            <div id="comment_text">
+            <?= htmlspecialchars($data['comment']) ?>
+            </div>
+            <div id="comment_actions">
+                    <div class="comment-update"><a href="index.php?action=updatecomment&id=<?= $data['id'] ?>"><i class="fas fa-pen"></i></a></div>
+                    <div class="comment-delete" id="<?= $data['id'] ?>"><i class="fas fa-trash-alt"></i></div>
+            </div>
         </div>
     </div>
 <?php

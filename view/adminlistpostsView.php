@@ -29,7 +29,7 @@ while ($data = $posts->fetch())
                 </div>
             </div>
             <div id="post_button_admin">
-                <div class="post-update"><a href="index.php?action=updatepost&id=<?= $data['id'] ?>"><i class="fas fa-pen"></i></a></div>
+                <div class="post-update"><a href="index.php?action=showpost&id=<?= $data['id'] ?>"><i class="fas fa-pen"></i></a></div>
                 <div class="post-delete" id="<?= $data['id'] ?>"><i class="fas fa-trash-alt"></i></a></div>
             </div>                    
         </div>  

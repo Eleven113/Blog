@@ -12,7 +12,7 @@ function listPosts()
     require('view/listpostsView.php');
 }
 
-function post()
+function getPost()
 {
     $postManager = new PostManager();
     $commentManager = new CommentManager();
@@ -89,4 +89,13 @@ function deleteComment($commentId)
     $commentManager->deleteComment($commentId);
 
     header('Location: index.php?action=listcomments');
+}
+
+function showPost($postId)
+{
+    $postManager = new PostManager();
+    $post = $postManager->getPost($postId);
+
+    // require('view/adminshowpost.php');
+
 }

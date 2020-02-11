@@ -112,6 +112,9 @@ textarea {
 
 #comment_content {
     margin-top: 10px;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #comment_title {
@@ -238,4 +241,19 @@ button {
 
 .post-delete,.comment-delete{
     cursor: pointer;
+}
+
+#comment_text {
+    width: 85%;
+    font-size:2vw;
+}
+
+#comment_actions {
+    width:5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size:1.5vw;
+
 }

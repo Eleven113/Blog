@@ -4,9 +4,9 @@ if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
         listPosts();
     }
-    elseif ($_GET['action'] == 'post') {
+    elseif ($_GET['action'] == 'getpost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            post();
+            getPost();
         }
         else {
             echo 'Erreur : aucun identifiant de billet envoyé';
@@ -62,6 +62,25 @@ if (isset($_GET['action'])) {
             echo 'Erreur : aucun identifiant de commentaire envoyé';
         }  
     } 
+
+    elseif ($_GET['action'] == 'showpost') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            showPost($_GET['id']);
+            echo 'showP';
+        }
+        else {
+            echo 'Erreur : aucun identifiant de commentaire envoyé';
+        }  
+    } 
+    elseif ($_GET['action'] == 'showpost') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            echo 'showP';
+            showPost();
+        }
+        else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+    }
 }
 else {
     listPosts();

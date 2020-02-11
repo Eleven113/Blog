@@ -29,11 +29,11 @@ class PostManager extends Manager
         {
             die('Erreur : '.$e->getMessage());
         }
-
-        $req = $db->prepare('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts WHERE id = ? ');
+        echo $postId;
+        $req = $db->prepare('SELECT id, title, post FROM posts WHERE id = ? ');
         $req->execute(array($postId));
         $post = $req->fetch();
-
+        
         return $post;
     }
 

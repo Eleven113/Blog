@@ -14,7 +14,7 @@ while ($data = $posts->fetch())
                 <?= htmlspecialchars($data['title']) ?>
             </h3>
         </div>
-        <a href="index.php?action=post&id=<?= $data['id'] ?>">
+        <a href="index.php?action=getpost&id=<?= $data['id'] ?>">
         <div id="post_content">
             <?php              
                 if ( strlen($data['post']) > 500 ){
@@ -29,7 +29,7 @@ while ($data = $posts->fetch())
         </div>
         </a>
         <div id="post_date">
-            <em><a href="index.php?action=post&id=<?= $data['id'] ?>">Commentaires</a></em>
+            <em><a href="index.php?action=getpost&id=<?= $data['id'] ?>">Commentaires</a></em>
             <em>Article publié le <?= $data['creation_date_fr'] ?></em>
         </div>    
     </div>

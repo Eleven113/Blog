@@ -3,10 +3,10 @@ class ConfirmManagement {
         this.div = document.getElementById(divId);
         this.buttonsDelete = document.getElementsByClassName(buttonDeleteClass);
         this.buttonNo = document.getElementById(buttonNoId);
-        console.log(this.buttonsDelete);
-        this.events();
         this.href = document.getElementById("actionLink").href;
         this.link = document.getElementById("actionLink");
+        this.events();
+
     }
 
     events(){
