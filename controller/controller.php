@@ -32,7 +32,7 @@ function addComment($postId, $author, $comment)
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?action=post&id='. $postId);
+        header('Location: index.php?action=getpost&id='. $postId);
     }
 }
 
@@ -41,7 +41,7 @@ function alertComment($commentId)
     $commentManager = new CommentManager();
     $postId = $commentManager->flagComment($commentId);
 
-    header('Location: index.php?action=post&id='. $postId);
+    header('Location: index.php?action=getpost&id='. $postId);
 
 }
 
