@@ -2,15 +2,14 @@
 
 <?php ob_start(); ?>
 
-<h3>Modifier votre article :</h3>
+<h3>Modifier ce commentaire :</h3>
 
 <div id="post_form">
-    <form action="index.php?action=updatepost&id=<?= $post['id'] ?>"  method="post">
+    <form action="index.php?action=updatecomment&id=<?= $comment['id'] ?>"  method="post">
         <textarea name="post">
-            <h3><?= htmlspecialchars($post['title']) ?></h3>
-            <p><?= nl2br(htmlspecialchars($post['post'])) ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
         </textarea>
-        <button type="submit" id="update_post_btn" class="btn btn-dark"><i class='fas fa-comment'></i>&nbsp;Envoyer</button>
+        <button type="submit" id="update_comment_btn" class="btn btn-dark"><i class='fas fa-comment'></i>&nbsp;Envoyer</button>
     </form>
 </div>   
 

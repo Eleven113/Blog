@@ -29,7 +29,7 @@ class PostManager extends Manager
         {
             die('Erreur : '.$e->getMessage());
         }
-        echo $postId;
+        
         $req = $db->prepare('SELECT id, title, post FROM posts WHERE id = ? ');
         $req->execute(array($postId));
         $post = $req->fetch();
@@ -74,7 +74,7 @@ class PostManager extends Manager
         return $exec;
     }
 
-    public function updatePost() // A faire
+    public function updatePost($postId,$article) // A faire
     { 
         try
         {
@@ -85,8 +85,25 @@ class PostManager extends Manager
             die('Erreur : '.$e->getMessage());
         }
 
-        // $req = $bdd->prepare('UPDATE INTO posts(id, posts) VALUES('', :post)');
-        $req->execute(array('post' => $post));
+        $dom = new DOMDocument;
+        $dom->loadHTML($article);
+        $nodes_h3 = $dom->getElementsByTagName('h3');
+        foreach ($nodes_h3 as $node_h3) {
+            $title = $node_h3->nodeValue;          
+        }
+
+        $nodes_p = $dom->getElementsByTagName('p');
+        foreach ($nodes_p as $node_p) {
+            $p .= $node_p->nodeValue."\n";
+        }
+
+        $req = $db->prepare('UPDATE posts SET title = ?, post = ?, creation_date = CURRENT_TIME WHERE id = ?');
+        $req->execute(array($title,$p,$postId));
+        if (!$req) {
+            echo "\nPDO::errorInfo():\n";
+            print_r($db->errorInfo());
+         }
+ 
     }
 
     public function deletePost($postId)
@@ -102,15 +119,6 @@ class PostManager extends Manager
 
         $req = $db->prepare('DELETE FROM posts WHERE id = ?');
         $req->execute(array($postId));
-
-
-        // if (!$vardemerde) {
-        //     echo "\nPDO::errorInfo():\n";
-        //     print_r($db->errorInfo());
-        // }
-        // else{
-        //     echo 'c good';
-        // }
 
     }
 }

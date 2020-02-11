@@ -66,21 +66,38 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'showpost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             showPost($_GET['id']);
-            echo 'showP';
+        }
+        else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }  
+    } 
+
+    elseif ($_GET['action'] == 'updatepost') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            updatePost($_GET['id'],$_POST['post']);
+        }
+        else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }  
+    } 
+
+    elseif ($_GET['action'] == 'showcomment') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            showComment($_GET['id']);
         }
         else {
             echo 'Erreur : aucun identifiant de commentaire envoyé';
         }  
     } 
-    elseif ($_GET['action'] == 'showpost') {
+
+    elseif ($_GET['action'] == 'updatecomment') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            echo 'showP';
-            showPost();
+            updateComment($_GET['id'],$_POST['post']);
         }
         else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
-    }
+            echo 'Erreur : aucun identifiant de commentaire envoyé';
+        }  
+    } 
 }
 
 else {

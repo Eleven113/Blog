@@ -190,7 +190,7 @@ button {
     text-align: right;
 }
 
-#post_form, #create_post_btn {
+#post_form, #create_post_btn, #update_post_btn, #update_comment_btn {
     margin-top: 15px;
 }
 

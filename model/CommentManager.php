@@ -48,7 +48,54 @@ class CommentManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE FROM comments WHERE id =?');
+        $req->execute(array($commentId));      
+    }    
+
+    public function getComment($commentId)
+    {
+        try
+        {
+            $db = $this->dbConnect();
+        }
+        catch(Exception $e)
+        {
+            die('Erreur : '.$e->getMessage());
+        }
+        echo $commentId;
+        $req = $db->prepare('SELECT id , comment FROM comments WHERE id = ?');
         $req->execute(array($commentId));
+        $comment = $req->fetch();
+
+        return $comment;
+    }
+
+
+    public function updateComment($commentId,$comment) // A faire
+    { 
+        try
+        {
+            $db = $this->dbConnect();
+        }
+        catch(Exception $e)
+        {
+            die('Erreur : '.$e->getMessage());
+        }
+
+        $dom = new DOMDocument;
+        $dom->loadHTML($comment);
+
+        $nodes_p = $dom->getElementsByTagName('p');
+        foreach ($nodes_p as $node_p) {
+            $p .= $node_p->nodeValue."\n";
+        }
+
+        $req = $db->prepare('UPDATE comments SET comment = ?, date_creation = CURRENT_TIME WHERE id = ?');
+        $req->execute(array($p,$commentIdId));
+        if (!$req) {
+            echo "\nPDO::errorInfo():\n";
+            print_r($db->errorInfo());
+         }
+ 
     }    
 
 

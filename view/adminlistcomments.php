@@ -27,7 +27,7 @@ while ($data = $comments->fetch())
             <?= htmlspecialchars($data['comment']) ?>
             </div>
             <div id="comment_actions">
-                    <div class="comment-update"><a href="index.php?action=updatecomment&id=<?= $data['id'] ?>"><i class="fas fa-pen"></i></a></div>
+                    <div class="comment-update"><a href="index.php?action=showcomment&id=<?= $data['id'] ?>"><i class="fas fa-pen"></i></a></div>
                     <div class="comment-delete" id="<?= $data['id'] ?>"><i class="fas fa-trash-alt"></i></div>
             </div>
         </div>

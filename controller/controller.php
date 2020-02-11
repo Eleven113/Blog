@@ -96,6 +96,31 @@ function showPost($postId)
     $postManager = new PostManager();
     $post = $postManager->getPost($postId);
 
-    // require('view/adminshowpost.php');
+    require('view/adminshowpost.php');
 
+}
+
+function updatePost($postId,$article)
+{
+    $postManager = new PostManager();
+    $postManager->updatePost($postId,$article);
+
+    header('Location: index.php?action=admin');
+}
+
+function showComment($commentId)
+{
+    $commentManager = new CommentManager();
+    $comment = $commentManager->getComment($commentId);
+
+    require('view/adminshowcomment.php');
+
+}
+
+function updateComment($commentId,$comment)
+{
+    $postManager = new PostManager();
+    $postManager->updatePost($postId,$article);
+
+    header('Location: index.php?action=admin');
 }
