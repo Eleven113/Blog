@@ -53,6 +53,15 @@ if (isset($_GET['action'])) {
             echo 'Erreur : aucun identifiant de billet envoyé';
         }  
     }   
+
+    elseif ($_GET['action'] == 'deletecomment') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            deleteComment($_GET['id']);
+        }
+        else {
+            echo 'Erreur : aucun identifiant de commentaire envoyé';
+        }  
+    } 
 }
 else {
     listPosts();

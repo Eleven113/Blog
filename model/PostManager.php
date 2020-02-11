@@ -103,6 +103,7 @@ class PostManager extends Manager
         $req = $db->prepare('DELETE FROM posts WHERE id = ?');
         $req->execute(array($postId));
 
+
         // if (!$vardemerde) {
         //     echo "\nPDO::errorInfo():\n";
         //     print_r($db->errorInfo());

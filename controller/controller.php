@@ -78,15 +78,15 @@ function addPost($post)
 function deletePost($postId)
 {
     $postManager = new PostManager();
-    $postManager->deletePost($post);
+    $postManager->deletePost($postId);
 
-    // header('Location: index.php?action=admin');
+    header('Location: index.php?action=admin');
 }
 
-function deleteComment($postId)
+function deleteComment($commentId)
 {
     $commentManager = new CommentManager();
-    $commentManager->listComments();
+    $commentManager->deleteComment($commentId);
 
-    // header('Location: index.php?action=admin');
+    header('Location: index.php?action=listcomments');
 }

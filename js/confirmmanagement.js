@@ -15,9 +15,10 @@ class ConfirmManagement {
         }.bind(this));
 
         for (let i=0; i < this.buttonsDelete.length; i++ ){
+            let commentID = this.buttonsDelete[i].id;
             this.buttonsDelete[i].addEventListener("click",function(){
                     this.div.style.display = "flex";
-                    this.link.href = this.href + (this.buttonsDelete.length-i);
+                    this.link.href = this.href + commentID;
             }.bind(this));
         }
     }

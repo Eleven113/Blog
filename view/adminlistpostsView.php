@@ -1,5 +1,5 @@
 <?php $title = 'Interface d\'administration - Articles'; ?>
-
+<?php $script= "js/deletepost.js"; ?>
 <?php ob_start(); ?>
 <div class="confirm" id="confirm_dl_post">
     <div id="confirm_window">
@@ -24,16 +24,13 @@ while ($data = $posts->fetch())
     <div class="post">
         <div id="post_admin">
             <div id ="post_title">
-                <div id="post_id">
-                    <?= htmlspecialchars($data['id']) ?>-&nbsp;
-                </div>
                 <div id="post_name">
                     <?= htmlspecialchars($data['title']) ?>
                 </div>
             </div>
             <div id="post_button_admin">
                 <div class="post-update"><a href="index.php?action=updatepost&id=<?= $data['id'] ?>"><i class="fas fa-pen"></i></a></div>
-                <div class="post-delete"><i class="fas fa-trash-alt"></i></a></div>
+                <div class="post-delete" id="<?= $data['id'] ?>"><i class="fas fa-trash-alt"></i></a></div>
             </div>                    
         </div>  
     </div>

@@ -236,6 +236,6 @@ button {
     width: 10%;
 }
 
-.post-delete{
+.post-delete,.comment-delete{
     cursor: pointer;
 }

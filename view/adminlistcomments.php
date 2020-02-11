@@ -1,8 +1,17 @@
 <?php $title = 'Interface d\'administration - Commentaires'; ?>
-
+<?php $script= "js/deletecomment.js"; ?>
 <?php ob_start(); ?>
+<div class="confirm" id="confirm_dl_comment">
+    <div id="confirm_window">
+        <div class="confirm-text">Vous êtes sur le point de supprimer un commentaire ! Confirmez ?</div>
+        <div class="confirm-buttons">
+            <button id="confirm_dl_comment_no" class="btn btn-dark">Non</button>
+            <a href="index.php?action=deletecomment&id=" id="actionLink"><button id="confirm_comment_post_yes" class="btn btn-dark">Oui</button></a>
+        </div>
+    </div>    
+</div>
 
-<div id="cr_post"><h3><a href="index.php?action=createpost"><i class="fas fa-clipboard-list"></i>&nbsp;Liste des commentaires : </a></h3></div>
+<div id="cr_post"><i class="fas fa-clipboard-list"></i>&nbsp;Liste des commentaires : </h3></div>
 <div id="comments">
 <?php
 while ($data = $comments->fetch())
@@ -17,8 +26,8 @@ while ($data = $comments->fetch())
         <?= htmlspecialchars($data['comment']) ?>
         </div>
         <div id="comment_actions">
-                <a href="index.php?action=updatecomment&id=<?= $data['id'] ?>"><i class="fas fa-pen"></i></a>
-                <a href="index.php?action=deletecomment&id=<?= $data['id'] ?>"><i class="fas fa-trash-alt"></i></a>
+                <div class="comment-update"><a href="index.php?action=updatecomment&id=<?= $data['id'] ?>"><i class="fas fa-pen"></i></a></div>
+                <div class="comment-delete" id="<?= $data['id'] ?>"><i class="fas fa-trash-alt"></i></div>
         </div>
     </div>
 <?php
