@@ -6,7 +6,7 @@
 
 <div id="post_form">
     <form action="index.php?action=updatepost&id=<?= $post['id'] ?>"  method="post">
-        <textarea name="post">
+        <textarea name="post" required>
             <h3><?= htmlspecialchars($post['title']) ?></h3>
             <p><?= nl2br(htmlspecialchars($post['post'])) ?></p>
         </textarea>

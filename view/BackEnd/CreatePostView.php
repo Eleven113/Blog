@@ -6,7 +6,7 @@
 
 <div id="post_form">
     <form action="index.php?action=addpost"  method="post">
-        <textarea name="post">
+        <textarea name="post" required>
             <h3>Le titre de votre article</h3>
             <span>Tapez votre texte ici</span>
         </textarea>

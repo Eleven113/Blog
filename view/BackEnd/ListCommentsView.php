@@ -17,18 +17,20 @@
 ?>
 
 
-<div class="confirm" id="confirm_dl_comment">
-    <div id="confirm_window">
-        <div class="confirm-text">Vous êtes sur le point de supprimer un commentaire ! Confirmez ?</div>
-        <div class="confirm-buttons">
-            <button id="confirm_dl_comment_no" class="btn btn-dark">Non</button>
-            <a href="index.php?action=deletecomment&id=" id="actionLink"><button id="confirm_comment_post_yes" class="btn btn-dark">Oui</button></a>
-        </div>
-    </div>    
-</div>
+    <div class="confirm" id="confirm_dl_comment">
+        <div id="confirm_window">
+            <div class="confirm-text">Vous êtes sur le point de supprimer un commentaire ! Confirmez ?</div>
+            <div class="confirm-buttons">
+                <button id="confirm_dl_comment_no" class="btn btn-dark">Non</button>
+                <a href="index.php?action=deletecomment&id=" id="actionLink"><button id="confirm_comment_post_yes" class="btn btn-dark">Oui</button></a>
+            </div>
+        </div>    
+    </div>
 
-<div id="cr_post"><h3><i class="fas fa-clipboard-list"></i>&nbsp;Liste des commentaires : </h3></div>
-<div id="comments">
+    <div id="cr_post"><h3><i class="fas fa-clipboard-list"></i>&nbsp;Liste des commentaires : </h3></div>
+    
+    <div id="comments">
+
 <?php
 while ($data = $comments->fetch())
 {

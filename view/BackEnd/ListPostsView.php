@@ -36,7 +36,7 @@
 while ($data = $posts->fetch())
 {
 ?>
-    <div class="post">
+    <article class="post">
         <div id="post_admin">
             <div id ="post_title">
                 <div id="post_name">
@@ -48,7 +48,7 @@ while ($data = $posts->fetch())
                 <div class="post-delete" id="<?= $data['id'] ?>"><i class="fas fa-trash-alt"></i></a></div>
             </div>                    
         </div>  
-    </div>
+    </article>
 <?php
 }
 $posts->closeCursor();
