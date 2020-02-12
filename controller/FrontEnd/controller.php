@@ -42,6 +42,7 @@ function alertComment($commentId)
 {
     $commentManager = new CommentManager();
     $commentId = $commentManager->flagComment($commentId);
+    $_SESSION['notice'] = "Le commentaire a bien été signalé.";
 
     header('Location: index.php?action=getpost&id='. $commentId);
 

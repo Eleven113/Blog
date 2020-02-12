@@ -1,0 +1,1 @@
+let noticeRun = new NoticeManagement("notice","notice_close");

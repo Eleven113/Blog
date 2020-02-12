@@ -262,3 +262,37 @@ button {
 #author{
     font-size: 4vw;
 }
+
+#notice{
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items:center;
+    font-size: 2vw;
+    margin-top: 5px;
+}
+
+#notice_text{
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+#notice_close{
+    cursor: pointer;
+}
+
+
+#banner_admin-title{
+    margin-top: 10px;
+    width: 70%;
+    text-align: center;
+    border: 3px solid black;
+    box-shadow: 5px 9px 11px #737373;
+    background: white;
+}

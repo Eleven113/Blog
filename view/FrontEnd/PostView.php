@@ -1,9 +1,13 @@
 <?php $title = 'Billet Simple pour l\'Alaska - Jean Forteroche'; ?>
-
+<?php $script = "public/js/NoticeRun.js" ; ?>
 <?php ob_start(); ?>
 <?php
     if ( $_SESSION['notice'] ) { ?>
-    <div id="notice"><?= $_SESSION['notice'] ?></div>
+    <div id="notice">
+        <div id="notice_icon"><i class="fas fa-check"></i></div>
+        <div id="notice_text"><?= $_SESSION['notice'] ?></div>
+        <div id="notice_close"><i class="fas fa-times"></i></div>
+    </div>
 <?php
     unset($_SESSION['notice']);
     }

@@ -24,7 +24,7 @@ function addPost($post)
 {
     $postManager = new PostManager();
     $post = $postManager->addPost($post);
-
+    $_SESSION['notice'] = "Votre article a bien été ajouté.";
     header('Location: index.php?action=admin');
 
 }
@@ -33,6 +33,7 @@ function deletePost($postId)
 {
     $postManager = new PostManager();
     $postManager->deletePost($postId);
+    $_SESSION['notice'] = "Votre article a bien été supprimé.";
 
     header('Location: index.php?action=admin');
 }
@@ -41,6 +42,7 @@ function deleteComment($commentId)
 {
     $commentManager = new CommentManager();
     $commentManager->deleteComment($commentId);
+    $_SESSION['notice'] = "Le commentaire a bien été supprimé.";
 
     header('Location: index.php?action=listcomments');
 }
@@ -50,7 +52,7 @@ function showPost($postId)
     $postManager = new PostManager();
     $post = $postManager->getPost($postId);
 
-    require('view/BackEnd/ShowPostView.php');
+    require('view/BackEnd/PostView.php');
 
 }
 
@@ -58,6 +60,7 @@ function updatePost($postId,$article)
 {
     $postManager = new PostManager();
     $postManager->updatePost($postId,$article);
+    $_SESSION['notice'] = "Votre article a bien été modifié.";
 
     header('Location: admin/index.php?action=admin');
 }
@@ -67,7 +70,7 @@ function showComment($commentId)
     $commentManager = new CommentManager();
     $comment = $commentManager->getComment($commentId);
 
-    require('view/BackEnd/ShowCommentView.php');
+    require('view/BackEnd/CommentView.php');
 
 }
 
@@ -75,6 +78,7 @@ function updateComment($commentId,$comment)
 {
     $commentManager = new CommentManager();
     $commentManager->updateComment($commentId,$comment);
+    $_SESSION['notice'] = "Le commentaire a bien été modifié.";
 
     header('Location: index.php?action=listcomments');
 }

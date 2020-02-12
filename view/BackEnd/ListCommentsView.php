@@ -1,6 +1,22 @@
 <?php $title = 'Interface d\'administration - Commentaires'; ?>
-<?php $script= "public/js/deletecomment.js"; ?>
+<?php $script1= "public/js/DeleteComment.js"; ?>
+<?php $script2= "public/js/NoticeRun.js"; ?>
+
 <?php ob_start(); ?>
+
+<?php
+    if ( $_SESSION['notice'] ) { ?>
+    <div id="notice">
+        <div id="notice_icon"><i class="fas fa-check"></i></div>
+        <div id="notice_text"><?= $_SESSION['notice'] ?></div>
+        <div id="notice_close"><i class="fas fa-times"></i></div>
+    </div>
+<?php
+    unset($_SESSION['notice']);
+    }
+?>
+
+
 <div class="confirm" id="confirm_dl_comment">
     <div id="confirm_window">
         <div class="confirm-text">Vous êtes sur le point de supprimer un commentaire ! Confirmez ?</div>
