@@ -1,5 +1,5 @@
 <?php $title = 'Interface d\'administration - Commentaires'; ?>
-<?php $script= "js/deletecomment.js"; ?>
+<?php $script= "public/js/deletecomment.js"; ?>
 <?php ob_start(); ?>
 <div class="confirm" id="confirm_dl_comment">
     <div id="confirm_window">

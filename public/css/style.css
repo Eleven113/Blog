@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'go_2_old_westernregular';
-    src: url('../fonts/go_2_old_western-webfont.woff2') format('woff2'),
-        url('../fonts/go_2_old_western-webfont.woff') format('woff');
+    src: url('../../public/fonts/go_2_old_western-webfont.woff2') format('woff2'),
+        url('../../public/fonts/go_2_old_western-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 

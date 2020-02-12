@@ -1,5 +1,5 @@
 <?php $title = 'Interface d\'administration - Articles'; ?>
-<?php $script= "js/deletepost.js"; ?>
+<?php $script= "public/js/deletepost.js"; ?>
 <?php ob_start(); ?>
 <div class="confirm" id="confirm_dl_post">
     <div id="confirm_window">
