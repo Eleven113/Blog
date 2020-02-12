@@ -27,8 +27,10 @@ function addComment($postId, $author, $comment)
 {
     $commentManager = new CommentManager();
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
-
+    $_SESSION['notice'] = "Votre commentaire a bien été ajouté.";
+    
     if ($affectedLines === false) {
+        unset($_SESSION['notice']);
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
     else {
@@ -39,8 +41,8 @@ function addComment($postId, $author, $comment)
 function alertComment($commentId)
 {
     $commentManager = new CommentManager();
-    $postId = $commentManager->flagComment($commentId);
+    $commentId = $commentManager->flagComment($commentId);
 
-    header('Location: index.php?action=getpost&id='. $postId);
+    header('Location: index.php?action=getpost&id='. $commentId);
 
 }

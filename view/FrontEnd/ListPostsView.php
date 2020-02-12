@@ -5,23 +5,23 @@
 
 
 <?php
-while ($data = $posts->fetch())
+while ($post = $posts->fetch())
 {
 ?>
     <div class="post">
         <div id="post_title">
             <h3>
-                <?= htmlspecialchars($data['title']) ?>
+                <?= htmlspecialchars($post['title']) ?>
             </h3>
         </div>
-        <a href="index.php?action=getpost&id=<?= $data['id'] ?>">
+        <a href="index.php?action=getpost&id=<?= $post['id'] ?>">
         <div id="post_content">
             <?php              
-                if ( strlen($data['post']) > 500 ){
-                    $post_txt = htmlspecialchars(substr($data['post'],0,500) . ' (...)');
+                if ( strlen($post['post']) > 500 ){
+                    $post_txt = nl2br(htmlspecialchars(substr($post['post'],0,500) . ' (...)'));
                 }
                 else {
-                    $post_txt = htmlspecialchars($data['post']);
+                    $post_txt = nl2br(htmlspecialchars($post['post']));
                 }
                 echo $post_txt;
             ?>
@@ -29,8 +29,8 @@ while ($data = $posts->fetch())
         </div>
         </a>
         <div id="post_date">
-            <em><a href="index.php?action=getpost&id=<?= $data['id'] ?>">Commentaires</a></em>
-            <em>Article publié le <?= $data['creation_date_fr'] ?></em>
+            <em><a href="index.php?action=getpost&id=<?= $post['id'] ?>">Commentaires</a></em>
+            <em>Article publié le <?= htmlspecialchars($post['creation_date_fr']) ?></em>
         </div>    
     </div>
 <?php

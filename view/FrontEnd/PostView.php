@@ -1,6 +1,13 @@
 <?php $title = 'Billet Simple pour l\'Alaska - Jean Forteroche'; ?>
 
 <?php ob_start(); ?>
+<?php
+    if ( $_SESSION['notice'] ) { ?>
+    <div id="notice"><?= $_SESSION['notice'] ?></div>
+<?php
+    unset($_SESSION['notice']);
+    }
+?>
     <div id="backto">
         <a href="index.php"><i class="fa fa-share fa-flip-horizontal"></i> Retour à la liste des articles</a>
     </div>
@@ -28,7 +35,7 @@
                 <div id="comment">
                     <div id="comment_title">
                         <div>
-                            <strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_comment_fr'] ?>
+                            <strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= htmlspecialchars($comment['date_comment_fr']) ?>
                         </div>
                         <a href="index.php?action=alertcomment&id=<?= $comment['id'] ?>"><i class="fas fa-exclamation-triangle"></i></a>
                     </div>

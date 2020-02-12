@@ -6,7 +6,7 @@ class CommentManager extends Manager
     public function getComments($postId)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(date_creation, \'%d/%m/%Y à %H H %i\') AS date_comment_fr FROM comments WHERE id_post = ? ORDER BY date_creation DESC');
+        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(creation_date, \'%d/%m/%Y à %H H %i\') AS date_comment_fr FROM comments WHERE post_id = ? ORDER BY creation_date DESC');
         $comments->execute(array($postId));
 
         return $comments;
@@ -15,7 +15,7 @@ class CommentManager extends Manager
     public function postComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('INSERT INTO comments(id_post, author, comment, date_creation) VALUES(?, ?, ?, CURRENT_TIME)');
+        $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, creation_date) VALUES(?, ?, ?, CURRENT_TIME)');
         $affectedLines = $comments->execute(array($postId, $author, $comment));
 
         return $affectedLines;
@@ -25,7 +25,7 @@ class CommentManager extends Manager
     {
 
         $db = $this->dbConnect();
-        $commentReq = $db->prepare('SELECT id_post FROM comments WHERE id = ?');
+        $commentReq = $db->prepare('SELECT post_id FROM comments WHERE id = ?');
         $commentReq->execute(array($commentId));
         
         $comment = $commentReq->fetch();
@@ -33,13 +33,13 @@ class CommentManager extends Manager
         $alertReq = $db->prepare('UPDATE comments SET alert = alert+1 WHERE id = ?');
         $alertReq->execute(array($commentId));
         
-        return $comment['id_post'];
+        return $comment['post_id'];
     }
 
     public function listComments()
     {
         $db = $this->dbConnect();
-        $comments = $db->query('SELECT id, author, comment, DATE_FORMAT(date_creation, \'%d/%m/%Y\') AS creation_date_fr, alert FROM comments ORDER BY alert DESC,date_creation DESC');
+        $comments = $db->query('SELECT id, author, comment, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr, alert FROM comments ORDER BY alert DESC,creation_date DESC');
 
         return $comments;
     }
@@ -88,7 +88,7 @@ class CommentManager extends Manager
             $p .= $node_p->nodeValue."\n";
         }
         
-        $req = $db->prepare('UPDATE comments SET comment = ?, date_creation = CURRENT_TIME WHERE id = ?');
+        $req = $db->prepare('UPDATE comments SET comment = ?, creation_date = CURRENT_TIME WHERE id = ?');
         $req->execute(array($p,$commentId));
         if (!$req) {
             echo "\nPDO::errorInfo():\n";

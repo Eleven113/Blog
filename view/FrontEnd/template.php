@@ -13,7 +13,8 @@
     <header>
         <div id="banner">
             <img src="public/img/header.jpg" id="lake" alt="Paysage d'un lac au canada">
-            <span id="banner_span">Billet simple pour l'Alaska</span>
+            <div id="title">Billet simple pour l'Alaska</div>
+            <div id="author">Jean Forteroche</div>
         </div>
     </header>
     <div id="main">

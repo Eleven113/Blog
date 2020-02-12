@@ -66,9 +66,10 @@ a:active {
 
 #banner {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 10vw;
+    font-size: 9vw;
     font-family: 'go_2_old_westernregular';
     color: white;
 }
@@ -256,4 +257,8 @@ button {
     align-items: flex-end;
     font-size:1.5vw;
 
+}
+
+#author{
+    font-size: 4vw;
 }
