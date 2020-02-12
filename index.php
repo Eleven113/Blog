@@ -92,7 +92,7 @@ if (isset($_GET['action'])) {
 
     elseif ($_GET['action'] == 'updatecomment') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            updateComment($_GET['id'],$_POST['post']);
+            updateComment($_GET['id'],$_POST['comment']);
         }
         else {
             echo 'Erreur : aucun identifiant de commentaire envoyé';

@@ -5,6 +5,7 @@ class ConfirmManagement {
         this.buttonNo = document.getElementById(buttonNoId);
         this.href = document.getElementById("actionLink").href;
         this.link = document.getElementById("actionLink");
+        this.positionY;
         this.events();
 
     }
@@ -19,6 +20,7 @@ class ConfirmManagement {
             this.buttonsDelete[i].addEventListener("click",function(){
                     this.div.style.display = "flex";
                     this.link.href = this.href + commentID;
+                    this.div.style.top = window.pageYOffset + "px";
             }.bind(this));
         }
     }

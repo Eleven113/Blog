@@ -119,8 +119,8 @@ function showComment($commentId)
 
 function updateComment($commentId,$comment)
 {
-    $postManager = new PostManager();
-    $postManager->updatePost($postId,$article);
+    $commentManager = new CommentManager();
+    $commentManager->updateComment($commentId,$comment);
 
-    header('Location: index.php?action=admin');
+    header('Location: index.php?action=listcomments');
 }

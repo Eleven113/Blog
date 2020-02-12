@@ -1,4 +1,4 @@
-<?php $title = 'Interface d\'administration - Article'; ?>
+<?php $title = 'Interface d\'administration - Commentaire'; ?>
 
 <?php ob_start(); ?>
 
@@ -6,7 +6,7 @@
 
 <div id="post_form">
     <form action="index.php?action=updatecomment&id=<?= $comment['id'] ?>"  method="post">
-        <textarea name="post">
+        <textarea name="comment">
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
         </textarea>
         <button type="submit" id="update_comment_btn" class="btn btn-dark"><i class='fas fa-comment'></i>&nbsp;Envoyer</button>
@@ -22,7 +22,7 @@
       tinycomments_mode: 'embedded',
       tinycomments_author: 'Author name',
     });
-  </script>
+</script>
 
 <?php $content = ob_get_clean(); ?>
 
