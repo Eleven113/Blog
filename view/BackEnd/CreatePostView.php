@@ -27,4 +27,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('admin/template.php'); ?>
+<?php require('../view/BackEnd/template.php'); ?>

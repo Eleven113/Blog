@@ -1,5 +1,5 @@
 <?php $title = 'Billet Simple pour l\'Alaska - Jean Forteroche'; ?>
-<?php $script = "public/js/NoticeRun.js" ; ?>
+<?php $script = '<script src="public/js/NoticeRun.js"></script>' ; ?>
 <?php ob_start(); ?>
 <?php
     if ( $_SESSION['notice'] ) { ?>

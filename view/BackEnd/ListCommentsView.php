@@ -1,6 +1,6 @@
 <?php $title = 'Interface d\'administration - Commentaires'; ?>
-<?php $script1= "public/js/DeleteComment.js"; ?>
-<?php $script2= "public/js/NoticeRun.js"; ?>
+<?php $script1= '<script src ="../public/js/DeleteComment.js"></script>'; ?>
+<?php $script2= '<script src ="../public/js/NoticeRun.js"></script>'; ?>
 
 <?php ob_start(); ?>
 
@@ -21,8 +21,8 @@
         <div id="confirm_window">
             <div class="confirm-text">Vous êtes sur le point de supprimer un commentaire ! Confirmez ?</div>
             <div class="confirm-buttons">
-                <button id="confirm_dl_comment_no" class="btn btn-dark">Non</button>
-                <a href="index.php?action=deletecomment&id=" id="actionLink"><button id="confirm_comment_post_yes" class="btn btn-dark">Oui</button></a>
+                <button id="confirm_dl_comment_no" class="btn btn-dark btn-confirm">Non</button>
+                <button id="confirm_comment_post_yes" class="btn btn-dark btn-confirm"><a href="index.php?action=deletecomment&id=" id="actionLink">Oui</a></button>
             </div>
         </div>    
     </div>
@@ -57,4 +57,4 @@ $comments->closeCursor();
 </div>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('admin/template.php'); ?>
+<?php require('../view/BackEnd/template.php'); ?>

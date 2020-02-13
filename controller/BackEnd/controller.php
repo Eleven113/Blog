@@ -1,10 +1,14 @@
 <?php
-function adminListPost()
+
+require_once('../model/BackEnd/PostManager.php');
+require_once('../model/BackEnd/CommentManager.php');
+
+function listPost()
 {
     $postManager = new PostManager();
     $posts = $postManager->getPosts(); 
 
-    require('view/BackEnd/ListPostsView.php');
+    require('../view/BackEnd/ListPostsView.php');
 }
 
 function listComments()
@@ -12,12 +16,12 @@ function listComments()
     $commentManager = new CommentManager();
     $comments = $commentManager->listComments();
 
-    require('view/BackEnd/ListCommentsView.php');
+    require('../view/BackEnd/ListCommentsView.php');
 }
 
 function createPost()
 {
-    require('view/BackEnd/CreatePostView.php');
+    require('../view/BackEnd/CreatePostView.php');
 }
 
 function addPost($post)
@@ -25,7 +29,7 @@ function addPost($post)
     $postManager = new PostManager();
     $post = $postManager->addPost($post);
     $_SESSION['notice'] = "Votre article a bien été ajouté.";
-    header('Location: index.php?action=admin');
+    header('Location: index.php');
 
 }
 
@@ -35,7 +39,7 @@ function deletePost($postId)
     $postManager->deletePost($postId);
     $_SESSION['notice'] = "Votre article a bien été supprimé.";
 
-    header('Location: index.php?action=admin');
+    header('Location: index.php');
 }
 
 function deleteComment($commentId)
@@ -52,7 +56,7 @@ function showPost($postId)
     $postManager = new PostManager();
     $post = $postManager->getPost($postId);
 
-    require('view/BackEnd/PostView.php');
+    require('../view/BackEnd/PostView.php');
 
 }
 
@@ -62,7 +66,7 @@ function updatePost($postId,$article)
     $postManager->updatePost($postId,$article);
     $_SESSION['notice'] = "Votre article a bien été modifié.";
 
-    header('Location: admin/index.php?action=admin');
+    header('Location: index.php');
 }
 
 function showComment($commentId)
@@ -70,7 +74,7 @@ function showComment($commentId)
     $commentManager = new CommentManager();
     $comment = $commentManager->getComment($commentId);
 
-    require('view/BackEnd/CommentView.php');
+    require('../view/BackEnd/CommentView.php');
 
 }
 

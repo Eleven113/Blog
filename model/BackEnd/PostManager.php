@@ -1,5 +1,5 @@
 <?php
-require_once("model/Manager.php");
+require_once("../model/BackEnd/Manager.php");
 
 class PostManager extends Manager
 {

@@ -1,6 +1,6 @@
 <?php $title = 'Interface d\'administration - Articles'; ?>
-<?php $script1 = "public/js/DeletePost.js"; ?>
-<?php $script2= "public/js/NoticeRun.js"; ?>
+<?php $script1= '<script src ="../public/js/DeletePost.js"></script>'; ?>
+<?php $script2= '<script src ="../public/js/NoticeRun.js"></script>'; ?>
 
 <?php ob_start(); ?>
 
@@ -55,4 +55,4 @@ $posts->closeCursor();
 ?>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('admin/template.php'); ?>
+<?php require('../view/BackEnd/template.php'); ?>
