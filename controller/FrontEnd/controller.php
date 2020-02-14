@@ -47,3 +47,8 @@ function alertComment($commentId)
     header('Location: index.php?action=getpost&id='. $commentId);
 
 }
+
+function author(){
+    require('view/FrontEnd/AuthorView.php');
+}
+

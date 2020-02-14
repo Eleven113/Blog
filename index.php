@@ -34,7 +34,11 @@ if (isset($_GET['action'])) {
         else {
             echo 'Erreur : aucun identifiant de commentaire envoyé';
         }  
-    }    
+    }
+    
+    elseif ($_GET['action'] == 'author') {
+        author();
+    }
 }
 
 else {

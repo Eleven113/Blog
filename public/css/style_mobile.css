@@ -1,0 +1,65 @@
+#header_menu{
+    display: none;
+}
+
+#bars_button{
+    height: 40px;
+    width: 40px;
+    margin: 15px;
+    border: 3px solid white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: snow;
+    background: rgba(255,255,255,0.4);
+    font-size: 25px;
+}
+
+footer{
+    display: none;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    border: 0;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-left: 20px;
+    background: snow;
+}
+
+#banner{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background: dimgray;
+}
+
+#lake{
+    display:none;
+}
+
+#banner_title{
+    width:80%;
+}
+
+#footer_link-nav,#footer_link, #footer_reservation, #footer_author{
+    align-items: flex-start;
+}
+
+.footer-title{
+    font-size:3vw;
+}
+
+ul{
+    align-items: flex-start;
+}
+
+#footer_author-button {
+    font-size: 7vw;
+}
