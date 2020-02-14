@@ -39,6 +39,7 @@
   
 
     <footer>
+    <div id="bars_button_footer"><i class="fas fa-bars"></i></div>
         <div id="footer_link">
             <div id="footer_link-title" class="footer-title">Liens</div>
             <nav id="footer_link-nav">

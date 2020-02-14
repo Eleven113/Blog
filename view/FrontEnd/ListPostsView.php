@@ -15,11 +15,13 @@ while ($post = $posts->fetch())
 {
 ?> 
     <div class="post">
-        <div class="post_title">
-            <h3>
-                <?= htmlspecialchars($post['title']) ?>
-            </h3>
-        </div>
+        <a href="index.php?action=getpost&id=<?= $post['id'] ?>">
+            <div class="post_title">
+                <h3>
+                    <?= htmlspecialchars($post['title']) ?>
+                </h3>
+            </div>
+        </a>
         <a href="index.php?action=getpost&id=<?= $post['id'] ?>">
         <div class="post_content">
             <?php              
@@ -35,7 +37,7 @@ while ($post = $posts->fetch())
         </div>
         </a>
         <div class="post_date">
-            <em><a href="index.php?action=getpost&id=<?= $post['id'] ?>">Commentaires</a></em>
+            <em id="comments_link"><a href="index.php?action=getpost&id=<?= $post['id'] ?>">Commentaires</a></em>
             <em>Article publié le <?= htmlspecialchars($post['creation_date_fr']) ?></em>
         </div>    
     </div>

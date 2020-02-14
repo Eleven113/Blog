@@ -418,5 +418,9 @@ ul{
 }
 
 #bars_button{
-    display:none;
+    display: none;
+}
+
+#bars_button_footer{
+    display: none;
 }
