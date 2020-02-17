@@ -4,7 +4,7 @@
 <div id="concept">  
     <p><strong>Jean Forteroche</strong> vous propose de découvrir en avant-première les dix premiers chapitres de son prochain roman. </p>
     <p><strong>Billet simple pour l'Alaska</strong>, c'est l'histoire d'un jeune homme qui quitte tout pour devenir chercheur d'or dans le Grand Nord. D'aventures en découvertes, vous serez plongés dans l'univers impitoyable et dangereux des prospecteurs au temps de la ruée vers l'or.
-    <p>Chaque semaine, un nouveau chapitre sera publié jusqu'à la sortie du livre prévue pour le 22 février 2020. Précommandez le dès à présent sur Amazon.fr, Cultura.fr, Darty.fr (Version Relié ou e-book).</p>
+    <p>Chaque semaine, un nouveau chapitre sera publié jusqu'à la sortie du livre prévue pour le 22 février 2020. Précommandez le dès à présent sur Amazon.fr, Cultura.fr, Fnac.com (Version Relié ou e-book).</p>
 </div>
 
 <h3>Chapitres disponibles :</h3>

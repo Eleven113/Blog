@@ -3,86 +3,90 @@
 require_once('../model/BackEnd/PostManager.php');
 require_once('../model/BackEnd/CommentManager.php');
 
-function listPost()
-{
-    $postManager = new PostManager();
-    $posts = $postManager->getPosts(); 
+class ControllerBack {
 
-    require('../view/BackEnd/ListPostsView.php');
-}
+    public function listPost()
+    {
+        $postManager = new PostManager();
+        $posts = $postManager->getPosts(); 
 
-function listComments()
-{
-    $commentManager = new CommentManager();
-    $comments = $commentManager->listComments();
+        require('../view/BackEnd/ListPostsView.php');
+    }
 
-    require('../view/BackEnd/ListCommentsView.php');
-}
+    public function listComments()
+    {
+        $commentManager = new CommentManager();
+        $comments = $commentManager->listComments();
 
-function createPost()
-{
-    require('../view/BackEnd/CreatePostView.php');
-}
+        require('../view/BackEnd/ListCommentsView.php');
+    }
 
-function addPost($post)
-{
-    $postManager = new PostManager();
-    $post = $postManager->addPost($post);
-    $_SESSION['notice'] = "Votre article a bien été ajouté.";
-    header('Location: index.php');
+    public function createPost()
+    {
+        require('../view/BackEnd/CreatePostView.php');
+    }
 
-}
+    public function addPost($post)
+    {
+        $postManager = new PostManager();
+        $post = $postManager->addPost($post);
+        $_SESSION['notice'] = "Votre article a bien été ajouté.";
+        header('Location: index.php');
 
-function deletePost($postId)
-{
-    $postManager = new PostManager();
-    $postManager->deletePost($postId);
-    $_SESSION['notice'] = "Votre article a bien été supprimé.";
+    }
 
-    header('Location: index.php');
-}
+    public function deletePost($postId)
+    {
+        $postManager = new PostManager();
+        $postManager->deletePost($postId);
+        $_SESSION['notice'] = "Votre article a bien été supprimé.";
 
-function deleteComment($commentId)
-{
-    $commentManager = new CommentManager();
-    $commentManager->deleteComment($commentId);
-    $_SESSION['notice'] = "Le commentaire a bien été supprimé.";
+        header('Location: index.php');
+    }
 
-    header('Location: index.php?action=listcomments');
-}
+    public function deleteComment($commentId)
+    {
+        $commentManager = new CommentManager();
+        $commentManager->deleteComment($commentId);
+        $_SESSION['notice'] = "Le commentaire a bien été supprimé.";
 
-function showPost($postId)
-{
-    $postManager = new PostManager();
-    $post = $postManager->getPost($postId);
+        header('Location: index.php?action=listcomments');
+    }
 
-    require('../view/BackEnd/PostView.php');
+    public function showPost($postId)
+    {
+        $postManager = new PostManager();
+        $post = $postManager->getPost($postId);
 
-}
+        require('../view/BackEnd/PostView.php');
 
-function updatePost($postId,$article)
-{
-    $postManager = new PostManager();
-    $postManager->updatePost($postId,$article);
-    $_SESSION['notice'] = "Votre article a bien été modifié.";
+    }
 
-    header('Location: index.php');
-}
+    public function updatePost($postId,$article)
+    {
+        $postManager = new PostManager();
+        $postManager->updatePost($postId,$article);
+        $_SESSION['notice'] = "Votre article a bien été modifié.";
 
-function showComment($commentId)
-{
-    $commentManager = new CommentManager();
-    $comment = $commentManager->getComment($commentId);
+        header('Location: index.php');
+    }
 
-    require('../view/BackEnd/CommentView.php');
+    public function showComment($commentId)
+    {
+        $commentManager = new CommentManager();
+        $comment = $commentManager->getComment($commentId);
 
-}
+        require('../view/BackEnd/CommentView.php');
 
-function updateComment($commentId,$comment)
-{
-    $commentManager = new CommentManager();
-    $commentManager->updateComment($commentId,$comment);
-    $_SESSION['notice'] = "Le commentaire a bien été modifié.";
+    }
 
-    header('Location: index.php?action=listcomments');
+    public function updateComment($commentId,$comment)
+    {
+        $commentManager = new CommentManager();
+        $commentManager->updateComment($commentId,$comment);
+        $_SESSION['notice'] = "Le commentaire a bien été modifié.";
+
+        header('Location: index.php?action=listcomments');
+    }
+
 }

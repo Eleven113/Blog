@@ -6,12 +6,14 @@ require('controller/FrontEnd/controller.php');
 if (isset($_GET['action'])) {
 
     if ($_GET['action'] == 'listPosts') {
-        listPosts();
+        $controllerFront = new ControllerFront();
+        $controllerFront->listPosts();
     }
 
     elseif ($_GET['action'] == 'getpost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            getPost();
+            $controllerFront = new ControllerFront();
+            $controllerFront->getPost();
         }
         else {
             echo 'Erreur : aucun identifiant de billet envoyé';
@@ -20,7 +22,8 @@ if (isset($_GET['action'])) {
 
     elseif ($_GET['action'] == 'addcomment') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            addComment($_GET['id'], $_POST['name'], $_POST['text']);
+            $controllerFront = new ControllerFront();
+            $controllerFront->addComment($_GET['id'], $_POST['name'], $_POST['text']);
         }
         else {
             echo 'Erreur : aucun identifiant de commentaire envoyé';
@@ -29,7 +32,8 @@ if (isset($_GET['action'])) {
 
     elseif ($_GET['action'] == 'alertcomment') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            alertComment($_GET['id']);
+            $controllerFront = new ControllerFront();
+            $controllerFront->alertComment($_GET['id']);
         }
         else {
             echo 'Erreur : aucun identifiant de commentaire envoyé';
@@ -37,10 +41,12 @@ if (isset($_GET['action'])) {
     }
     
     elseif ($_GET['action'] == 'author') {
-        author();
+        $controllerFront = new ControllerFront();
+        $controllerFront->author();
     }
 }
 
 else {
-    listPosts();
+    $controllerFront = new ControllerFront();
+    $controllerFront->listPosts();
 }
