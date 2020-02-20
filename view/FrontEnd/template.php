@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:title" content="Billet simplet pour l'Alaska - Jean Forteroche" />
     <meta property="og:type" content="Website" />
     <meta property="og:url" content="http://www.thibaut-minard.fr/blog/" />
