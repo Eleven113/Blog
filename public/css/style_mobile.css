@@ -77,7 +77,7 @@ ul{
     font-size: 3vw;
 }
 
-#comments_link {
+.comments_link {
     display : none;
 }
 

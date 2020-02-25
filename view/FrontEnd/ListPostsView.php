@@ -37,7 +37,7 @@ while ($post = $posts->fetch())
         </div>
         </a>
         <div class="post_date">
-            <em id="comments_link"><a href="index.php?action=getpost&id=<?= $post['id'] ?>">Commentaires</a></em>
+            <em class="comments_link"><a href="index.php?action=getpost&id=<?= $post['id'] ?>">Commentaires</a></em>
             <em>Article publié le <?= htmlspecialchars($post['creation_date_fr']) ?></em>
         </div>    
     </div>

@@ -27,16 +27,23 @@ Class ControllerFront {
 
     public function addComment($postId, $author, $comment)
     {
-        $commentManager = new CommentManager();
-        $affectedLines = $commentManager->postComment($postId, $author, $comment);
-        $_SESSION['notice'] = "Votre commentaire a bien été ajouté.";
 
-        if ($affectedLines === false) {
-            unset($_SESSION['notice']);
-            throw new Exception('Impossible d\'ajouter le commentaire !');
+        if ( empty($author) || empty($comment) ){
+            $_SESSION['notice'] = "Votre commentaire n'a pas été ajouté. Nom ou message vide";
+            header('Location: index.php?action=getpost&id='. $postId);
         }
         else {
-            header('Location: index.php?action=getpost&id='. $postId);
+            $commentManager = new CommentManager();
+            $affectedLines = $commentManager->postComment($postId, $author, $comment);
+            $_SESSION['notice'] = "Votre commentaire a bien été ajouté.";
+
+            if ($affectedLines === false) {
+                unset($_SESSION['notice']);
+                throw new Exception("Impossible d'ajouter le commentaire !");
+            }
+            else {
+                header('Location: index.php?action=getpost&id='. $postId);
+            }
         }
     }
 

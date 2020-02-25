@@ -28,9 +28,15 @@ class ControllerBack {
 
     public function addPost($post)
     {
-        $postManager = new PostManager();
-        $post = $postManager->addPost($post);
-        $_SESSION['notice'] = "Votre article a bien été ajouté.";
+        if (empty($post)){
+            $_SESSION['notice'] = "Votre article n'a pas été ajouté. Contenu vide."; 
+        }
+        else {
+            $postManager = new PostManager();
+            $post = $postManager->addPost($post);
+            $_SESSION['notice'] = "Votre article a bien été ajouté.";
+        }
+
         header('Location: index.php');
 
     }
@@ -64,9 +70,14 @@ class ControllerBack {
 
     public function updatePost($postId,$article)
     {
-        $postManager = new PostManager();
-        $postManager->updatePost($postId,$article);
-        $_SESSION['notice'] = "Votre article a bien été modifié.";
+        if (empty($article)){
+            $_SESSION['notice'] = "Votre article n'a pas été modifié. Contenu vide.";
+        }
+        else {
+            $postManager = new PostManager();
+            $postManager->updatePost($postId,$article);
+            $_SESSION['notice'] = "Votre article a bien été modifié.";
+        }
 
         header('Location: index.php');
     }
@@ -82,9 +93,15 @@ class ControllerBack {
 
     public function updateComment($commentId,$comment)
     {
-        $commentManager = new CommentManager();
-        $commentManager->updateComment($commentId,$comment);
-        $_SESSION['notice'] = "Le commentaire a bien été modifié.";
+
+        if (empty($comment)){
+            $_SESSION['notice'] = "Le commentaire n'a pas été modifié. Contenu vide.";
+        }
+        else {
+            $commentManager = new CommentManager();
+            $commentManager->updateComment($commentId,$comment);
+            $_SESSION['notice'] = "Le commentaire a bien été modifié.";
+        }
 
         header('Location: index.php?action=listcomments');
     }
