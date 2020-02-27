@@ -1,22 +1,24 @@
 <?php
 
-require_once('../model/BackEnd/PostManager.php');
-require_once('../model/BackEnd/CommentManager.php');
-
 class ControllerBack {
+
+    public function __construct($commentManager, $postManager)
+    {
+        $this->commentManager = $commentManager;
+        $this->postManager = $postManager;
+    }
 
     public function listPost()
     {
-        $postManager = new PostManager();
-        $posts = $postManager->getPosts(); 
+        $posts = $this->postManager->getPosts(); 
 
         require('../view/BackEnd/ListPostsView.php');
     }
 
     public function listComments()
     {
-        $commentManager = new CommentManager();
-        $comments = $commentManager->listComments();
+
+        $comments = $this->commentManager->listComments();
 
         require('../view/BackEnd/ListCommentsView.php');
     }
@@ -32,8 +34,7 @@ class ControllerBack {
             $_SESSION['notice'] = "Votre article n'a pas été ajouté. Contenu vide."; 
         }
         else {
-            $postManager = new PostManager();
-            $post = $postManager->addPost($post);
+            $post = $this->postManager->addPost($post);
             $_SESSION['notice'] = "Votre article a bien été ajouté.";
         }
 
@@ -43,8 +44,7 @@ class ControllerBack {
 
     public function deletePost($postId)
     {
-        $postManager = new PostManager();
-        $postManager->deletePost($postId);
+        $this->postManager->deletePost($postId);
         $_SESSION['notice'] = "Votre article a bien été supprimé.";
 
         header('Location: index.php');
@@ -52,8 +52,7 @@ class ControllerBack {
 
     public function deleteComment($commentId)
     {
-        $commentManager = new CommentManager();
-        $commentManager->deleteComment($commentId);
+        $this->commentManager->deleteComment($commentId);
         $_SESSION['notice'] = "Le commentaire a bien été supprimé.";
 
         header('Location: index.php?action=listcomments');
@@ -61,8 +60,7 @@ class ControllerBack {
 
     public function showPost($postId)
     {
-        $postManager = new PostManager();
-        $post = $postManager->getPost($postId);
+        $post = $this->postManager->getPost($postId);
 
         require('../view/BackEnd/PostView.php');
 
@@ -74,8 +72,7 @@ class ControllerBack {
             $_SESSION['notice'] = "Votre article n'a pas été modifié. Contenu vide.";
         }
         else {
-            $postManager = new PostManager();
-            $postManager->updatePost($postId,$article);
+            $this->postManager->updatePost($postId,$article);
             $_SESSION['notice'] = "Votre article a bien été modifié.";
         }
 
@@ -84,8 +81,7 @@ class ControllerBack {
 
     public function showComment($commentId)
     {
-        $commentManager = new CommentManager();
-        $comment = $commentManager->getComment($commentId);
+        $comment = $this->commentManager->getComment($commentId);
 
         require('../view/BackEnd/CommentView.php');
 
@@ -98,8 +94,7 @@ class ControllerBack {
             $_SESSION['notice'] = "Le commentaire n'a pas été modifié. Contenu vide.";
         }
         else {
-            $commentManager = new CommentManager();
-            $commentManager->updateComment($commentId,$comment);
+            $this->commentManager->updateComment($commentId,$comment);
             $_SESSION['notice'] = "Le commentaire a bien été modifié.";
         }
 

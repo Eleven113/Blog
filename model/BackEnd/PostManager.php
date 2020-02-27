@@ -1,11 +1,10 @@
 <?php
-require_once("../model/BackEnd/Manager.php");
 
-class PostManager extends Manager
+class PostManager
 {
     protected $db;
 
-    public function __construct(PDO $db)
+    public function __construct($db)
     {
       $this->db = $db;
     }
@@ -13,7 +12,7 @@ class PostManager extends Manager
     public function getPosts()
     {
 
-        $posts = $this->$db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 50');
+        $posts = $this->db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 50');
 
         return $posts;
     }
@@ -21,7 +20,7 @@ class PostManager extends Manager
     public function getPost($postId)
     {
         
-        $req = $this->$db->prepare('SELECT id, title, post FROM posts WHERE id = ? ');
+        $req = $this->db->prepare('SELECT id, title, post FROM posts WHERE id = ? ');
         $req->execute(array($postId));
         $post = $req->fetch();
         
@@ -44,7 +43,7 @@ class PostManager extends Manager
 
         }
 
-        $req = $db->prepare('INSERT INTO posts(title,post,creation_date) VALUES ( ?,?, CURRENT_TIME)');
+        $req = $this->db->prepare('INSERT INTO posts(title,post,creation_date) VALUES ( ?,?, CURRENT_TIME)');
         $req->execute(array($title,$p));
         if (!$req) {
             echo "\nPDO::errorInfo():\n";
@@ -59,14 +58,6 @@ class PostManager extends Manager
 
     public function updatePost($postId,$article) // A faire
     { 
-        try
-        {
-            $db = $this->dbConnect();
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
 
         $dom = new DOMDocument;
         $dom->loadHTML($article);
@@ -80,7 +71,7 @@ class PostManager extends Manager
             $p .= $node_p->nodeValue."\n";
         }
 
-        $req = $db->prepare('UPDATE posts SET title = ?, post = ?, creation_date = CURRENT_TIME WHERE id = ?');
+        $req = $this->db->prepare('UPDATE posts SET title = ?, post = ?, creation_date = CURRENT_TIME WHERE id = ?');
         $req->execute(array($title,$p,$postId));
         if (!$req) {
             echo "\nPDO::errorInfo():\n";
@@ -91,16 +82,8 @@ class PostManager extends Manager
 
     public function deletePost($postId)
     { 
-        try
-        {
-            $db = $this->dbConnect();
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
 
-        $req = $db->prepare('DELETE FROM posts WHERE id = ?');
+        $req = $this->db->prepare('DELETE FROM posts WHERE id = ?');
         $req->execute(array($postId));
 
     }

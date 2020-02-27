@@ -1,27 +1,34 @@
 <?php
 session_start();
 
-require('../controller/BackEnd/controller.php');
+require ('../controller/BackEnd/controller.php');
+require ('../model/BackEnd/Manager.php');
+require ('../model/BackEnd/PostManager.php');
+require ('../model/BackEnd/CommentManager.php');
+
+$managerBack = new ManagerBack();
+$db = $managerBack->dbConnect();
+
+$commentManager = new CommentManager($db);
+$postManager = new PostManager($db);
+
+$controllerBack = new ControllerBack($commentManager, $postManager);
 
 if (isset($_GET['action'])) {
      if ($_GET['action'] == 'listcomments') {
-         $controllerBack = new ControllerBack();
          $controllerBack->listComments();
      }
  
      elseif ($_GET['action'] == 'createpost') {
-        $controllerBack = new ControllerBack();
         $controllerBack->createPost();
      }
  
      elseif ($_GET['action'] == 'addpost') {
-        $controllerBack = new ControllerBack();
         $controllerBack->addPost($_POST['post']);
      }
- 
+     
      elseif ($_GET['action'] == 'deletepost') {
          if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $controllerBack = new ControllerBack();
             $controllerBack->deletePost($_GET['id']);
          }
          else {
@@ -31,7 +38,6 @@ if (isset($_GET['action'])) {
  
      elseif ($_GET['action'] == 'deletecomment') {
          if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $controllerBack = new ControllerBack();
             $controllerBack->deleteComment($_GET['id']);
          }
          else {
@@ -41,7 +47,6 @@ if (isset($_GET['action'])) {
  
      elseif ($_GET['action'] == 'showpost') {
          if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $controllerBack = new ControllerBack();
             $controllerBack->showPost($_GET['id']);
          }
          else {
@@ -51,7 +56,6 @@ if (isset($_GET['action'])) {
  
      elseif ($_GET['action'] == 'updatepost') {
          if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $controllerBack = new ControllerBack();
             $controllerBack->updatePost($_GET['id'],$_POST['post']);
          }
          else {
@@ -61,7 +65,6 @@ if (isset($_GET['action'])) {
  
      elseif ($_GET['action'] == 'showcomment') {
          if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $controllerBack = new ControllerBack();
             $controllerBack->showComment($_GET['id']);
          }
          else {
@@ -71,7 +74,6 @@ if (isset($_GET['action'])) {
  
      elseif ($_GET['action'] == 'updatecomment') {
          if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $controllerBack = new ControllerBack();
             $controllerBack->updateComment($_GET['id'],$_POST['comment']);
          }
          else {
@@ -81,7 +83,6 @@ if (isset($_GET['action'])) {
  }
  
  else {
-    $controllerBack = new ControllerBack();
     $controllerBack->listPost();
  }
 ?>

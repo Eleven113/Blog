@@ -6,16 +6,13 @@ require ('model/FrontEnd/Manager.php');
 require ('model/FrontEnd/PostManager.php');
 require ('model/FrontEnd/CommentManager.php');
 
-$manager = new Manager();
-$db = $manager->dbConnect();
+$managerFront = new ManagerFront();
+$db = $managerFront->dbConnect();
 
 $commentManager = new CommentManager($db);
 $postManager = new PostManager($db);
 
-
 $controllerFront = new ControllerFront($commentManager, $postManager);
-
-
 
 if (isset($_GET['action'])) {
 

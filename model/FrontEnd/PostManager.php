@@ -1,7 +1,5 @@
 <?php
-require_once("model/FrontEnd/Manager.php");
-
-class PostManager extends Manager
+class PostManager
 {
     protected $db;
 
@@ -28,64 +26,4 @@ class PostManager extends Manager
         return $post;
     }
 
-    // public function addPost($article)
-    // { 
-
-    //     $dom = new DOMDocument;
-    //     $dom->loadHTML($article);
-    //     $nodes_h3 = $dom->getElementsByTagName('h3');
-    //     foreach ($nodes_h3 as $node_h3) {
-    //         $title = $node_h3->nodeValue;          
-    //     }
-
-    //     $nodes_p = $dom->getElementsByTagName('p');
-    //     foreach ($nodes_p as $node_p) {
-    //         $p .= $node_p->nodeValue."\n";
-
-    //     }
-
-    //     $req = $this->db->prepare('INSERT INTO posts(title,post,creation_date) VALUES ( ?,?, CURRENT_TIME)');
-    //     $req->execute(array($title,$p));
-    //     if (!$req) {
-    //         echo "\nPDO::errorInfo():\n";
-    //         print_r($db->errorInfo());
-    //      }
-    //     else {
-    //         $exec = true;
-    //     }
-
-    //     return $exec;
-    // }
-
-    // public function updatePost($postId,$article) 
-    // { 
-
-    //     $dom = new DOMDocument;
-    //     $dom->loadHTML($article);
-    //     $nodes_h3 = $dom->getElementsByTagName('h3');
-    //     foreach ($nodes_h3 as $node_h3) {
-    //         $title = $node_h3->nodeValue;          
-    //     }
-
-    //     $nodes_p = $dom->getElementsByTagName('p');
-    //     foreach ($nodes_p as $node_p) {
-    //         $p .= $node_p->nodeValue."\n";
-    //     }
-
-    //     $req = $this->db->prepare('UPDATE posts SET title = ?, post = ?, creation_date = CURRENT_TIME WHERE id = ?');
-    //     $req->execute(array($title,$p,$postId));
-    //     if (!$req) {
-    //         echo "\nPDO::errorInfo():\n";
-    //         print_r($db->errorInfo());
-    //      }
- 
-    // }
-
-    // public function deletePost($postId)
-    // { 
-
-    //     $req = $this->db->prepare('DELETE FROM posts WHERE id = ?');
-    //     $req->execute(array($postId));
-
-    // }
 }

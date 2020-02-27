@@ -1,7 +1,5 @@
 <?php
-require_once("model/FrontEnd/Manager.php");
-
-class CommentManager extends Manager
+class CommentManager
 {
 
     protected $db;
@@ -42,31 +40,5 @@ class CommentManager extends Manager
         
         return $comment['post_id'];
     }
-
-    // public function listComments()
-    // {
-
-    //     $comments = $this->db->query('SELECT id, author, comment, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr, alert FROM comments ORDER BY alert DESC,creation_date DESC');
-
-    //     return $comments;
-    // }
-
-    // public function deleteComment($commentId)
-    // {
-
-    //     $req = $this->db->prepare('DELETE FROM comments WHERE id =?');
-    //     $req->execute(array($commentId));      
-    // }    
-
-    // public function getComment($commentId)
-    // {
-
-
-    //     $req = $db->prepare('SELECT id , comment FROM comments WHERE id = ?');
-    //     $req->execute(array($commentId));
-    //     $comment = $req->fetch();
-
-    //     return $comment;
-    // }
 
 }
