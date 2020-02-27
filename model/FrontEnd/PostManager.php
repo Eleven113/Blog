@@ -3,18 +3,17 @@ require_once("model/FrontEnd/Manager.php");
 
 class PostManager extends Manager
 {
+    protected $db;
+
+    public function __construct($db)
+    {
+      $this->db = $db;
+    }
+
     public function getPosts()
     {
-        try
-        {
-            $db = $this->dbConnect();
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
 
-        $posts = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 50');
+        $posts = $this->$db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 50');
 
         return $posts;
     }

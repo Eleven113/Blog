@@ -3,6 +3,14 @@ require_once("model/FrontEnd/Manager.php");
 
 class CommentManager extends Manager
 {
+    
+    protected $db;
+
+    public function __construct($db)
+    {
+      $this->db = $db;
+    }
+
     public function getComments($postId)
     {
         $db = $this->dbConnect();
@@ -69,31 +77,4 @@ class CommentManager extends Manager
         return $comment;
     }
 
-
-    public function updateComment($commentId,$comment) 
-    { 
-        try
-        {
-            $db = $this->dbConnect();
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
-        
-        $dom = new DOMDocument;
-        $dom->loadHTML($comment);
-        $nodes_p = $dom->getElementsByTagName('p');
-        foreach ($nodes_p as $node_p) {
-            $p .= $node_p->nodeValue."\n";
-        }
-        
-        $req = $db->prepare('UPDATE comments SET comment = ?, creation_date = CURRENT_TIME WHERE id = ?');
-        $req->execute(array($p,$commentId));
-        if (!$req) {
-            echo "\nPDO::errorInfo():\n";
-            print_r($db->errorInfo());
-         }
- 
-    }    
 }

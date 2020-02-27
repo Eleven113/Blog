@@ -12,14 +12,6 @@ class PostManager extends Manager
 
     public function getPosts()
     {
-        // try
-        // {
-        //     $db = $this->dbConnect();
-        // }
-        // catch(Exception $e)
-        // {
-        //     die('Erreur : '.$e->getMessage());
-        // }
 
         $posts = $this->$db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 50');
 
@@ -28,16 +20,8 @@ class PostManager extends Manager
 
     public function getPost($postId)
     {
-        try
-        {
-            $db = $this->dbConnect();
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
         
-        $req = $db->prepare('SELECT id, title, post FROM posts WHERE id = ? ');
+        $req = $this->$db->prepare('SELECT id, title, post FROM posts WHERE id = ? ');
         $req->execute(array($postId));
         $post = $req->fetch();
         
@@ -46,14 +30,6 @@ class PostManager extends Manager
 
     public function addPost($article)
     { 
-        try
-        {
-            $db = $this->dbConnect();
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
 
         $dom = new DOMDocument;
         $dom->loadHTML($article);
