@@ -12,9 +12,6 @@ $db = $manager->dbConnect();
 $commentManager = new CommentManager($db);
 $postManager = new PostManager($db);
 
-// echo 'ruteur';
-// print_r($commentManager);
-// print_r($postManager);
 
 $controllerFront = new ControllerFront($commentManager, $postManager);
 
