@@ -3,6 +3,12 @@ session_start();
 
 require('controller/FrontEnd/controller.php');
 
+$manager = new Manager();
+$db = $manager->dbConnect();
+$commentManager = new CommentManager($db);
+$publicManager = new PostManager($db);
+
+
 if (isset($_GET['action'])) {
 
     if ($_GET['action'] == 'listPosts') {
